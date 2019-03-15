@@ -1,5 +1,6 @@
-# kafka
-[TOC]
+kafka
+* [什么是kafka](##什么是kafka)
+
 ## 什么是kafka
 Kafka是一个分布式发布 - 订阅消息系统和一个强大的队列，可以处理大量的数据，并使您能够将消息从一个端点传递到另一个端点。 Kafka适合离线和在线消息消费。 Kafka消息保留在磁盘上，并在群集内复制以防止数据丢失。<br>
 优势：高吞吐率，高性能，多重订阅，消息持久性，良好的伸缩性(动态扩展)，高可用。<br>
@@ -24,9 +25,9 @@ At most once，至多一次，消息可能丢失，但绝不会重复传输。<b
 At least once，至少一次，消息绝不会丢，但是可能会重复。<br>
 Exactly once，精确一次，每条消息肯定会被传输一次且仅一次。<br>
 <br>
->对于大多数消息中间件而言，一般只提供 At most once 和 At least once 两种传输保障，对于第三种一般很难做到，由此消息幂等性也很难保证。<br>
-Kafka 自 0.11 版本开始引入了幂等性和事务，Kafka 的幂等性是指单个生产者对于单分区单会话的幂等。<br>
->而事务可以保证原子性地写入到多个分区，即写入到多个分区的消息要么全部成功，要么全部回滚，这两个功能加起来可以让 Kafka 具备 EOS(Exactly Once Semantic)的能力。<br>
+>对于大多数消息中间件而言，一般只提供 At most once 和 At least once 两种传输保障，对于第三种一般很难做到，由此消息幂等性也很难保证。
+Kafka 自 0.11 版本开始引入了幂等性和事务，Kafka 的幂等性是指单个生产者对于单分区单会话的幂等。
+>而事务可以保证原子性地写入到多个分区，即写入到多个分区的消息要么全部成功，要么全部回滚，这两个功能加起来可以让 Kafka 具备EOS(ExactlyOnceSemantic)的能力。
 
 ## kafka监控
 ### Kafka Manager、Kafka Eagle(国人开源)、Kafka Monitor、Kafka Offset Monitor、Burrow、Chaperone、Confluent Control Center 等产品，尤其是 Cruise 还可以提供自动化运维的功能。
