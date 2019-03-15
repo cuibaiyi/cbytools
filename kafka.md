@@ -1,10 +1,12 @@
-# 什么是kafka
+# kafka
+[TOC]
+## 什么是kafka
 Kafka是一个分布式发布 - 订阅消息系统和一个强大的队列，可以处理大量的数据，并使您能够将消息从一个端点传递到另一个端点。 Kafka适合离线和在线消息消费。 Kafka消息保留在磁盘上，并在群集内复制以防止数据丢失。<br>
 优势：高吞吐率，高性能，多重订阅，消息持久性，良好的伸缩性(动态扩展)，高可用。<br>
 Kafka设计之初是为日志处理而生，给人们留下了数据可靠性要求不高的不良印象，但是随着版本的升级优化，其可靠性得到极大的增强。<br>
 - [kafka官网](http://kafka.apache.org/documentation/)
 
-# kafka应用场景
+## kafka应用场景
 - 1.消息服务器
 - 2.网站活动跟踪
 - 3.实时数据流聚合
@@ -22,18 +24,18 @@ At most once，至多一次，消息可能丢失，但绝不会重复传输。<b
 At least once，至少一次，消息绝不会丢，但是可能会重复。<br>
 Exactly once，精确一次，每条消息肯定会被传输一次且仅一次。<br>
 <br>
-对于大多数消息中间件而言，一般只提供 At most once 和 At least once 两种传输保障，对于第三种一般很难做到，由此消息幂等性也很难保证。<br>
+>对于大多数消息中间件而言，一般只提供 At most once 和 At least once 两种传输保障，对于第三种一般很难做到，由此消息幂等性也很难保证。<br>
 Kafka 自 0.11 版本开始引入了幂等性和事务，Kafka 的幂等性是指单个生产者对于单分区单会话的幂等。<br>
-而事务可以保证原子性地写入到多个分区，即写入到多个分区的消息要么全部成功，要么全部回滚，这两个功能加起来可以让 Kafka 具备 EOS(Exactly Once Semantic)的能力。<br>
+>而事务可以保证原子性地写入到多个分区，即写入到多个分区的消息要么全部成功，要么全部回滚，这两个功能加起来可以让 Kafka 具备 EOS(Exactly Once Semantic)的能力。<br>
 
-# kafka监控
+## kafka监控
 ### Kafka Manager、Kafka Eagle(国人开源)、Kafka Monitor、Kafka Offset Monitor、Burrow、Chaperone、Confluent Control Center 等产品，尤其是 Cruise 还可以提供自动化运维的功能。
 - [Eagle](http://www.cnblogs.com/smartloli/p/5829395.html)
 
-# Kafka Python client
+## Kafka Python client
 - [kafka-python](https://github.com/dpkp/kafka-python)
 
-# 快速上手kafka
+## 快速上手kafka
 ### 创建一个名为“test”的topic(主题)，它只包含一个分区，只有一个副本
     bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 
@@ -52,7 +54,7 @@ Kafka 自 0.11 版本开始引入了幂等性和事务，Kafka 的幂等性是�
 ### 删除topic
     bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic test
 
-# 集群
+## 集群
 复制 server.properties 文件重命名(server-1.properties,server-2.properties,server-3.properties)<br>
 
 zookeeper.connect=hostname1:port,hostname2:port,hostname3:port<br>
@@ -80,7 +82,7 @@ listeners=127.0.0.1:9093  #list<br>
 "Replicas"是复制此分区日志的节点列表，无论它们是否为领导者，或者即使它们当前处于活动状态。<br>
 "Isr"是同步复制品的集合。这是副本列表的子集，该列表当前处于活跃状态并且已经被领导者捕获。<br>
 
-# topic(主题)配置
+## topic(主题)配置
 - [主题配置官网](http://kafka.apache.org/documentation/#topicconfigs)
 ### 创建topic时配置属性
     bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic test --config max.message.bytes=64000 #设置最大信息数
@@ -89,7 +91,7 @@ listeners=127.0.0.1:9093  #list<br>
 ### 删除覆盖
     bin/kafka-configs.sh --zookeeper localhost:2181 --entity-type topics --entity-name test --alter --delete-config max.message.bytes
 
-# 配置
+## 配置
 num.io.threads=8                        #线程数<br>
 num.partitions=1                        #每个topic分配个数<br>
 num.recovery.threads.per.data.dir=1<br>
