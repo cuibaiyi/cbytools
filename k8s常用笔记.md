@@ -9,11 +9,11 @@
 
 ## **k8s常用命令**
 
-`kubectl version`     **查看版本**
-`kubectl get nodes` **查看所有node节点**
-`kubectl get pods`   **查看所有pod**
-`kubectl get pods -o wide` **更详细的输出**
-`kubectl get pods -l app=nginx` **根据标签查看pods信息
+`kubectl version`     **查看版本** <br>
+`kubectl get nodes` **查看所有node节点** <br>
+`kubectl get pods`   **查看所有pod** <br>
+`kubectl get pods -o wide` **更详细的输出** <br>
+`kubectl get pods -l app=nginx` **根据标签查看pods信息 <br>
 `kubectl get pods --all-namespaces`  **查看所有命名空间**
 `kubectl get pods -n namespace_name -o wide` **查看命名空间详细信息**
 `kubectl describe pods pods_name` **查看pods信息**
