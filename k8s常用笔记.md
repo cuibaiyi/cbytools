@@ -32,42 +32,42 @@ my-http    1       1      1   17m
  READY: 运行的pod数
  
 ## **k8s常用命令** 
-`kubectl explain pods 或者 pod.spec` **查看属性对象的使用方法**
-`kubectl  run nginx_demo --image=nginx:v1 --port=80 --generator=run/v1` **generator参数创建ReplicationController**
-`kubectl expose` **开放端口**
-`kubectl edit rc rc_name` **编辑rc的yaml配置**
-`kubectl version`     **查看版本**
-`kubectl logs pod_name --previous` **这个参数可以查看前一个容器终止时的日志，而不是当前的容器日志**
-`kubectl get nodes` **查看所有node节点**
-`kubectl get pods`   **查看所有pod**
-`kubectl get pods -o wide` **更详细的输出**
-`kubectl get pods pod_name -o yaml` **查看pod的yaml定义,json同理**
-`kubectl logs pod_name -c 容器名` **当pod包含多个容器时，查看指定容器的日志**
-`kubectl get pods --show-labels` **输出信息列出labels选项**
-`kubectl get pods -L lab_name1,lab_name2` **查看具有这2个标签的所有pod**
-`kubectl get pods -l app=nginx` **根据标签查看pods信息**
-`kubectl get pods -l '!env'` **列出所有没有env标签的pod**
-`kubectl label pods pod_name name=cby` **添加标签**
-`kubectl label pods pod_name name=test --overwrite` **更新已有的标签**
-`kubectl get pods --all-namespaces`  **查看所有命名空间的pod**
-`kubectl get pods -n namespace_name -o wide` **查看命名空间详细信息**
-`kubectl describe pods pods_name` **查看pods信息**
-`kubectl run testname --image=nginx:v1 --port=8080`  **启动一个容器**
-`kubectl delete pods pods_name`  **删除一个pods**
-`kubectl delete deployments deploy_name`  **删除一个deployments**
-`kubectl get deployments` **查看deployments控制器**
-`kubectl describe deploy deploy_name` **查看描述**
-`kubectl scale deploy deploy_name --replicas=4` **扩缩容 注意：应用本身需要支持水平伸缩**
-`kubectl set image deploy deploy_name deploy_name=nginx:v2`  **更新镜像**
-`kubectl rollout history deploy deploy_name` **查看升级历史，可以在执行部署的时候加上--record=true，可以记录历史执行的命令**
-`kubectl rollout status deploy deploy_name` **查看更新结果**
-`kubectl rollout pause deploy deploy_name` **暂停升级**
-`kubectl rollout resume deploy deploy_name` **恢复升级**
-`kubectl rollout undo deploy deploy_name` **快速回滚镜像**
-`kubectl rollout undo deploy deploy_name --to-revision=3` **快速回滚到指定版本，查看REVISION版本号**
-`kubectl rolling-update rc-demo --image=nginx:v3` **滚动更新**
-`kubectl exec pod_name -i -t /bin/bash`  **进入pod终端** 
-`kubectl port-forward pod_name 80:8080` **将本地的80端口转发到pod的8080端口，可以通过ip:80访问pod**
+`kubectl explain pods 或者 pod.spec` **查看属性对象的使用方法**<br>
+`kubectl  run nginx_demo --image=nginx:v1 --port=80 --generator=run/v1` **generator参数创建ReplicationController**<br>
+`kubectl expose` **开放端口**<br>
+`kubectl edit rc rc_name` **编辑rc的yaml配置**<br>
+`kubectl version`     **查看版本**<br>
+`kubectl logs pod_name --previous` **这个参数可以查看前一个容器终止时的日志，而不是当前的容器日志**<br>
+`kubectl get nodes` **查看所有node节点**<br>
+`kubectl get pods`   **查看所有pod**<br>
+`kubectl get pods -o wide` **更详细的输出**<br>
+`kubectl get pods pod_name -o yaml` **查看pod的yaml定义,json同理**<br>
+`kubectl logs pod_name -c 容器名` **当pod包含多个容器时，查看指定容器的日志**<br>
+`kubectl get pods --show-labels` **输出信息列出labels选项**<br>
+`kubectl get pods -L lab_name1,lab_name2` **查看具有这2个标签的所有pod**<br>
+`kubectl get pods -l app=nginx` **根据标签查看pods信息**<br>
+`kubectl get pods -l '!env'` **列出所有没有env标签的pod**<br>
+`kubectl label pods pod_name name=cby` **添加标签**<br>
+`kubectl label pods pod_name name=test --overwrite` **更新已有的标签**<br>
+`kubectl get pods --all-namespaces`  **查看所有命名空间的pod**<br>
+`kubectl get pods -n namespace_name -o wide` **查看命名空间详细信息**<br>
+`kubectl describe pods pods_name` **查看pods信息**<br>
+`kubectl run testname --image=nginx:v1 --port=8080`  **启动一个容器**<br>
+`kubectl delete pods pods_name`  **删除一个pods**<br>
+`kubectl delete deployments deploy_name`  **删除一个deployments**<br>
+`kubectl get deployments` **查看deployments控制器**<br>
+`kubectl describe deploy deploy_name` **查看描述**<br>
+`kubectl scale deploy deploy_name --replicas=4` **扩缩容 注意：应用本身需要支持水平伸缩**<br>
+`kubectl set image deploy deploy_name deploy_name=nginx:v2`  **更新镜像**<br>
+`kubectl rollout history deploy deploy_name` **查看升级历史，可以在执行部署的时候加上--record=true，可以记录历史执行的命令**<br>
+`kubectl rollout status deploy deploy_name` **查看更新结果**<br>
+`kubectl rollout pause deploy deploy_name` **暂停升级**<br>
+`kubectl rollout resume deploy deploy_name` **恢复升级**<br>
+`kubectl rollout undo deploy deploy_name` **快速回滚镜像**<br>
+`kubectl rollout undo deploy deploy_name --to-revision=3` **快速回滚到指定版本，查看REVISION版本号**<br>
+`kubectl rolling-update rc-demo --image=nginx:v3` **滚动更新**<br>
+`kubectl exec pod_name -i -t /bin/bash`  **进入pod终端**<br>
+`kubectl port-forward pod_name 80:8080` **将本地的80端口转发到pod的8080端口，可以通过ip:80访问pod**<br>
 ## 资源服务YAML定义
 ###Pod
 ```
