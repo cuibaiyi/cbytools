@@ -69,11 +69,11 @@ my-http    1       1      1   17m
 `kubectl exec pod_name -i -t /bin/bash`  **进入pod终端**<br>
 `kubectl port-forward pod_name 80:8080` **将本地的80端口转发到pod的8080端口，可以通过ip:80访问pod**<br>
 ## 资源服务YAML定义
-###Pod
+### Pod
 ```
 
 ```
-###ConfigMap
+### ConfigMap
 ```
 
 ```
@@ -174,7 +174,7 @@ spec:
         ports:
         - containerPort: 80 #容器的端口
 ```
-###ReplicaSet
+### ReplicaSet
 ```
 apiVersion: extensions/v1beta1
 kind: ReplicaSet
@@ -191,7 +191,7 @@ spec:
       - name: nginx
         image: nginx:1.10
 ```
-###Service
+### Service
 * ClusterIP：通过集群的内部 IP 暴露服务，选择该值，服务只能够在集群内部可以访问，这也是默认的ServiceType。
 * NodePort：通过每个 Node 节点上的 IP 和静态端口（NodePort）暴露服务。NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建。通过请求，可以从集群的外部访问一个 NodePort 服务。
 * LoadBalancer：使用云提供商的负载局衡器，可以向外部暴露服务。外部的负载均衡器可以路由到 NodePort 服务和 ClusterIP 服务，这个需要结合具体的云厂商进行操作。
@@ -212,7 +212,7 @@ spec:
       targetPort: 80 #匹配pod容器端口
   type: LoadBalancer #指定类型，默认为ClusterIP
 ```
-###Deployment
+### Deployment
 * RC的全部功能：Deployment具备上面描述的RC的全部功能
 * 事件和状态查看：可以查看Deployment的升级详细进度和状态
 * 回滚：当升级Pod的时候如果出现问题，可以使用回滚操作回滚到之前的任一版本
@@ -242,7 +242,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-###HorizontalPodAutoscaler(水平伸缩)
+### HorizontalPodAutoscaler(水平伸缩)
 ```
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -258,11 +258,11 @@ spec:
     name: deploy-demo #指定deployment名字
   targetCPUUtilizationPercentage: 85 #当cpu达到百分之85触发扩容
 ```
-###Job
+### Job
 ```
 
 ```
-###CronJob
+### CronJob
 ```
 
 ```
