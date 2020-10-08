@@ -34,6 +34,7 @@ Kafka 自 0.11 版本开始引入了幂等性和事务，Kafka 的幂等性是�
 
 ## Kafka Python client
 - [kafka-python](https://github.com/dpkp/kafka-python)
+- [kafka-python客户端配置](https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html)
 
 ## 快速上手kafka
 ### 创建一个名为“test”的topic(主题)，它只包含一个分区，只有一个副本
